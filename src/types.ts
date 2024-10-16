@@ -1,12 +1,33 @@
 import { SerializedStyles } from "@emotion/react";
+import CSS from 'csstype'
 
+export type Place={
+  place_id: string;
+  osm_id: string;
+  osm_type: string;
+  licence: string;
+  lat: string;
+  lon: string;
+  boundingbox: string[];
+  class: string;
+  type: string;
+  display_name: string;
+  display_place: string;
+  display_address: string;
+  address: {
+      city: string;
+      state: string;
+      country: string;
+      country_code: string;
+  }
+}
 export type FlexBoxProps = {
   flexDirection?: "row" | "column";
   gap?: string | number;
-  alignItems?: string;
-  justifyContent?: string;
-  padding?: string;
-  width?: string;
+  alignItems?: CSS.Property.AlignItems;
+  justifyContent?: CSS.Property.JustifyContent;
+  padding?: CSS.Property.Padding;
+  width?: CSS.Property.Width;
   css?: SerializedStyles;
 };
 
