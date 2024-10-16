@@ -1,19 +1,70 @@
-// import { SerializedStyles } from "@emotion/react";
-// import styled from "@emotion/styled";
-// import CSS from "csstype";
-// import isPropValid from "@emotion/is-prop-valid";
+import styled from "@emotion/styled";
+import { FlexBoxProps, HeadingProps, ImageProps, TextProps } from "../types";
+import { css } from "@emotion/react";
 
-// export type FlexBoxProps = {
-//   flexDirection?: "row" | "column";
-//   gap?: string | number;
-//   alignItems?: CSS.Property.AlignItems;
-//   justifyContent?: CSS.Property.JustifyContent;
-//   css?: SerializedStyles;
-// };
-// export const Flexbox = styled('div', {
-//   shouldForwardProp: isPropValid
-// })<FlexBoxProps>(({ flexDirection, gap, alignItems, justifyContent, ...props })=>{
-//     display:'flex',
-//     flexDirection,
+export const FlexBox = styled.div<FlexBoxProps>(
+  ({
+    flexDirection,
+    gap,
+    alignItems,
+    justifyContent,
+    padding,
+    width,
+    ...props
+  }) => [
+    {
+      display: "flex",
+      alignItems,
+      justifyContent,
+      flexDirection,
+      gap,
+      padding,
+      width,
+    },
+    props.css ?? css({}),
+  ]
+);
 
-// });
+export const HeadingText = styled.span<HeadingProps>(
+  ({
+    fontSize = "32px",
+    fontWeight = "600",
+    letterSpacing,
+    color,
+    ...props
+  }) => [
+    {
+      fontSize,
+      fontWeight,
+      letterSpacing,
+      color,
+    },
+    props.css ?? css({}),
+  ]
+);
+
+export const PlainText = styled.span<TextProps>(
+  ({
+    fontSize = "16px",
+    fontWeight = "400",
+    letterSpacing,
+    color,
+    ...props
+  }) => [
+    {
+      fontSize,
+      fontWeight,
+      letterSpacing,
+      color,
+    },
+    props.css ?? css({}),
+  ]
+);
+
+export const Image = styled.img<ImageProps>(({ height, width, ...props }) => [
+  {
+    height,
+    width,
+  },
+  props.css ?? css({}),
+]);

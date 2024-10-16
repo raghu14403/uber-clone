@@ -32,7 +32,7 @@ function RoutingComponent() {
     },
     {
       path: "/about",
-      element: <About />,
+      element: wrapper(true, <About />, true),
       errorElement: <div>Error</div>,
     },
     {
